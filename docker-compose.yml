@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+  bot:
+    container_name: bot-latin
+    build:
+      context: ./
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - .:/src
+    networks:
+      - botnet
+
+networks:
+  botnet:
+    driver: bridge
